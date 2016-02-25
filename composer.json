@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Nybbl\\Api\\": "src/"
+      "Nybbl\\": "src/"
     }
   }
 }
