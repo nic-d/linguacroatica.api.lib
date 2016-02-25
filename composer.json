@@ -1,5 +1,5 @@
 {
-  "name": "nybbl/api-lib",
+  "name": "nybbl/nybbl.api.lib",
   "description": "API Library for integrating with the Nybbl API (v1).",
   "homepage": "https://nybbl.co",
   "license": "proprietary",
