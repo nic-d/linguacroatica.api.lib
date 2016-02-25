@@ -3,7 +3,11 @@
   "description": "API Library for integrating with the Nybbl API (v1).",
   "homepage": "https://nybbl.co",
   "license": "proprietary",
-  "keywords": ["nybbl", "api", "library"],
+  "keywords": [
+    "nybbl",
+    "api",
+    "library"
+  ],
   "authors": [
     {
       "name": "Nic Davies",
@@ -18,7 +22,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Nybbl\\Api": "src/"
+      "Nybbl\\Api\\": "src/"
     }
   }
 }
