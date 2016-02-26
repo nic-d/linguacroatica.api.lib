@@ -8,7 +8,7 @@
 
 namespace Nybbl\Api;
 
-use Nybbl\Api;
+use Nybbl\Api\Api;
 
 class AnalyticsApi extends Api
 {
