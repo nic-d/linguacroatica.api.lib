@@ -1,28 +1,23 @@
 {
-  "name": "nybbl/nybbl.api.lib",
-  "description": "API Library for integrating with the Nybbl API (v1).",
-  "homepage": "https://nybbl.co",
-  "license": "proprietary",
-  "keywords": [
-    "nybbl",
-    "api",
-    "library"
-  ],
-  "authors": [
-    {
-      "name": "Nic Davies",
-      "email": "nic@nybbl.co",
-      "homepage": "https://nybbl.co"
+    "name": "nybbl/nybblapi",
+    "description": "API Library for integrating with the Nybbl API (v1)",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Nic Davies",
+            "email": "nic@nybbl.co"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3",
+        "ext-curl": "*",
+        "php-curl-class/php-curl-class": "^4.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nybbl\\": ["src/"]
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.3",
-    "ext-curl": "*",
-    "php-curl-class/php-curl-class": "^4.6"
-  },
-  "autoload": {
-    "psr-4": {
-      "Nybbl\\": "src/"
-    }
-  }
 }
