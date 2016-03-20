@@ -42,6 +42,19 @@ class OrderApi extends Api
     }
 
     /**
+     * Gets all of the orders for datatables
+     *
+     * @param int $restaurantId
+     * @param array $params
+     * @return array
+     */
+    public function getOrdersDatatable($restaurantId, $params)
+    {
+        $route = 'orders/' . $restaurantId . '/datatables';
+        return $this->doApiRequest($route, 'GET', $params);
+    }
+
+    /**
      * Get a specific order by it's ID
      *
      * @param int $orderId
