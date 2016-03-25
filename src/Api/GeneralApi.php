@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class GeneralApi
+ * @package Nybbl\Api
+ */
 class GeneralApi extends Api
 {
     /**
@@ -23,13 +27,23 @@ class GeneralApi extends Api
     }
 
     /**
+     * Returns data about the API
+     *
+     * @return array
+     */
+    public function getPing()
+    {
+        return $this->doApiRequest('/');
+    }
+
+    /**
      * Returns results relating to the search term
      *
      * @param string $query
      * @param int $restaurantId
      * @return array
      */
-    public function search($query, $restaurantId)
+    public function getSearch($query, $restaurantId)
     {
         $result = $this->doApiRequest(
             'search',
@@ -49,24 +63,24 @@ class GeneralApi extends Api
      * @param string $subdomain
      * @return array
      */
-    public function checkSubdomainExists($subdomain)
+    public function getSubdomain($subdomain)
     {
         $route = 'subdomain/' . $subdomain;
         return $this->doApiRequest($route);
     }
 
     /**
-     * Gets a list of nybbl domains
+     * Gets all Nybbl domains
      *
      * @return array
      */
-    public function getDomainList()
+    public function getDomains()
     {
         return $this->doApiRequest('domains');
     }
 
     /**
-     * Get a specific domain using the TLD or ID
+     * Get a specific nybbl domain using the TLD or ID
      *
      * @param int|string $domainId
      * @return array

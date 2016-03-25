@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class BillingApi
+ * @package Nybbl\Api
+ */
 class BillingApi extends Api
 {
     /**
@@ -60,6 +64,29 @@ class BillingApi extends Api
     }
 
     /**
+     * Updates payment data
+     *
+     * @param string $transactionId
+     * @param array $paymentData
+     * @return array
+     */
+    public function updatePayment($transactionId, $paymentData)
+    {
+        $route = 'billing/' . $transactionId . '/payment/update';
+        return $this->doApiRequest($route, 'POST', $paymentData);
+    }
+
+    /**
+     * @param int $transactionId
+     * @return array
+     */
+    public function deletePayment($transactionId)
+    {
+        $route = 'billing/payment/' . $transactionId . '/delete';
+        return $this->doApiRequest($route, 'POST');
+    }
+
+    /**
      * Creates a new payment
      *
      * @param int $restaurantId
@@ -70,19 +97,6 @@ class BillingApi extends Api
     {
         $route = 'billing/' . $restaurantId . '/payment/new';
         return $this->doApiRequest($route, 'POST', $paymentData);
-    }
-
-    /**
-     * Updates the restaurant's credit data
-     *
-     * @param int $restaurantId
-     * @param array $creditData
-     * @return array
-     */
-    public function updateCredits($restaurantId, $creditData)
-    {
-        $route = 'billing/' . $restaurantId . '/credits/update';
-        return $this->doApiRequest($route, 'POST', $creditData);
     }
 
     /**
@@ -99,15 +113,41 @@ class BillingApi extends Api
     }
 
     /**
-     * Creates a new card
+     * Gets the restaurant's credits amount
      *
-     * @param array $cardData
+     * @param int $restaurantId
      * @return array
      */
-    public function newCard($cardData)
+    public function getCredit($restaurantId)
     {
-        $route = 'billing/card/new';
-        return $this->doApiRequest($route, 'POST', $cardData);
+        $route = 'billing/' . $restaurantId . '/credits';
+        return $this->doApiRequest($route);
+    }
+
+    /**
+     * Creates a new Credits record in the DB
+     *
+     * @param int $restaurantId
+     * @param array $creditData
+     * @return array
+     */
+    public function newCredit($restaurantId, $creditData)
+    {
+        $route = 'billing/' . $restaurantId . '/credits/new';
+        return $this->doApiRequest($route, 'POST', $creditData);
+    }
+
+    /**
+     * Updates the restaurant's credit data
+     *
+     * @param int $restaurantId
+     * @param array $creditData
+     * @return array
+     */
+    public function updateCredit($restaurantId, $creditData)
+    {
+        $route = 'billing/' . $restaurantId . '/credits/update';
+        return $this->doApiRequest($route, 'POST', $creditData);
     }
 
     /**
@@ -123,6 +163,18 @@ class BillingApi extends Api
     }
 
     /**
+     * Creates a new card
+     *
+     * @param array $cardData
+     * @return array
+     */
+    public function newCard($cardData)
+    {
+        $route = 'billing/card/new';
+        return $this->doApiRequest($route, 'POST', $cardData);
+    }
+
+    /**
      * Deletes the restaurant's card
      *
      * @param int $cardId
@@ -132,6 +184,16 @@ class BillingApi extends Api
     {
         $route = 'billing/card/' . $cardId . '/delete';
         return $this->doApiRequest($route, 'POST');
+    }
+
+    /**
+     * Gets all of our plans
+     *
+     * @return array
+     */
+    public function getAllPlans()
+    {
+        return $this->doApiRequest('billing/plans');
     }
 
     /**
@@ -147,13 +209,15 @@ class BillingApi extends Api
     }
 
     /**
-     * Gets all of our plans
+     * Gets the plan that the restaurant is currently subscribed to
      *
+     * @param int $restaurantId
      * @return array
      */
-    public function getAllPlans()
+    public function getRestaurantPlan($restaurantId)
     {
-        return $this->doApiRequest('billing/plans');
+        $route = 'billing/' . $restaurantId . '/plan';
+        return $this->doApiRequest($route);
     }
 
     /**

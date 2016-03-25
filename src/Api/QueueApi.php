@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class QueueApi
+ * @package Nybbl\Api
+ */
 class QueueApi extends Api
 {
     /**

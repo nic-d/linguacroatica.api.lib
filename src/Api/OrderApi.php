@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class OrderApi
+ * @package Nybbl\Api
+ */
 class OrderApi extends Api
 {
     /**
@@ -28,14 +32,15 @@ class OrderApi extends Api
      * @param int $restaurantId
      * @param int $status
      * @param int $page
+     * @param string $order
      * @return array
      */
-    public function getOrders($restaurantId, $status = 0, $page = 0)
+    public function getOrders($restaurantId, $status = 0, $page = 0, $order = 'DESC')
     {
         $route = 'orders/' . $restaurantId;
 
         if (!is_null($status)) {
-            return $this->doApiRequest($route, 'GET', ['status' => $status, 'page' => $page]);
+            return $this->doApiRequest($route, 'GET', ['status' => $status, 'page' => $page, 'order' => $order]);
         } else {
             return $this->doApiRequest($route);
         }
@@ -67,6 +72,19 @@ class OrderApi extends Api
     }
 
     /**
+     * Updates the order data
+     *
+     * @param int $orderId
+     * @param array $updateData
+     * @return array
+     */
+    public function updateOrder($orderId, $updateData)
+    {
+        $route = 'order/' . $orderId . '/update';
+        return $this->doApiRequest($route, 'POST', $updateData);
+    }
+
+    /**
      * Updates the order's status
      *
      * @param int $orderId
@@ -82,5 +100,18 @@ class OrderApi extends Api
             'restaurant_id' => $restaurantId,
             'status' => $status,
         ]);
+    }
+
+    /**
+     * Archive or Unarchive an order
+     *
+     * @param int $orderId
+     * @param array $archiveData
+     * @return array
+     */
+    public function archiveOrder($orderId, $archiveData)
+    {
+        $route = 'order/' . $orderId . '/archive';
+        return $this->doApiRequest($route, 'POST', $archiveData);
     }
 }

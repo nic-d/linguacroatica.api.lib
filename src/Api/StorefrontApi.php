@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class StorefrontApi
+ * @package Nybbl\Api
+ */
 class StorefrontApi extends Api
 {
     /**
@@ -53,7 +57,7 @@ class StorefrontApi extends Api
      * @param array $postData
      * @return array
      */
-    public function newTheme($restaurantId, $postData)
+    public function createNewTheme($restaurantId, $postData)
     {
         $route = '/storefront/theme/' . $restaurantId . '/new';
         return $this->doApiRequest($route, 'POST', $postData);
@@ -104,7 +108,7 @@ class StorefrontApi extends Api
      * @param array $postData
      * @return array
      */
-    public function newThemeFile($themeId, $postData)
+    public function createNewThemeFile($themeId, $postData)
     {
         $route = '/storefront/themefile/' . $themeId . '/new';
         return $this->doApiRequest($route, 'POST', $postData);

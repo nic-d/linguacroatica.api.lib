@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class TeamApi
+ * @package Nybbl\Api
+ */
 class TeamApi extends Api
 {
     /**

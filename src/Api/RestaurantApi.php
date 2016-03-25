@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class RestaurantApi
+ * @package Nybbl\Api
+ */
 class RestaurantApi extends Api
 {
     /**

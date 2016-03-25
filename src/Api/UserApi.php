@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class UserApi
+ * @package Nybbl\Api
+ */
 class UserApi extends Api
 {
     /**
@@ -144,15 +148,15 @@ class UserApi extends Api
     }
 
     /**
-     * Deletes a user
+     * Get's the user
      *
      * @param int $userId
      * @return array
      */
-    public function deleteUser($userId)
+    public function getUser($userId)
     {
-        $route = 'user/' . $userId . '/delete';
-        return $this->doApiRequest($route, 'POST');
+        $route = 'user/' . $userId;
+        return $this->doApiRequest($route);
     }
 
     /**
@@ -169,15 +173,15 @@ class UserApi extends Api
     }
 
     /**
-     * Get's the user
+     * Deletes a user
      *
      * @param int $userId
      * @return array
      */
-    public function getUser($userId)
+    public function deleteUser($userId)
     {
-        $route = 'user/' . $userId;
-        return $this->doApiRequest($route);
+        $route = 'user/' . $userId . '/delete';
+        return $this->doApiRequest($route, 'POST');
     }
 
     /**

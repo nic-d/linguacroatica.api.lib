@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class DiscountApi
+ * @package Nybbl\Api
+ */
 class DiscountApi extends Api
 {
     /**
@@ -23,18 +27,6 @@ class DiscountApi extends Api
     }
 
     /**
-     * Gets all discounts
-     *
-     * @param int $restaurantId
-     * @return array
-     */
-    public function getAllDiscounts($restaurantId)
-    {
-        $route = 'discount/' . $restaurantId . '/all';
-        return $this->doApiRequest($route);
-    }
-
-    /**
      * Gets a specific discount
      *
      * @param int $discountId
@@ -43,6 +35,18 @@ class DiscountApi extends Api
     public function getDiscount($discountId)
     {
         $route = 'discount/' . $discountId;
+        return $this->doApiRequest($route);
+    }
+
+    /**
+     * Gets all discounts
+     *
+     * @param int $restaurantId
+     * @return array
+     */
+    public function getDiscounts($restaurantId)
+    {
+        $route = 'discount/' . $restaurantId . '/all';
         return $this->doApiRequest($route);
     }
 

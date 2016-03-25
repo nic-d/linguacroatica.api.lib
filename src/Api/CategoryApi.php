@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class CategoryApi
+ * @package Nybbl\Api
+ */
 class CategoryApi extends Api
 {
     /**
@@ -23,19 +27,7 @@ class CategoryApi extends Api
     }
 
     /**
-     * Gets all categories
-     *
-     * @param int $restaurantId
-     * @return array
-     */
-    public function getCategories($restaurantId)
-    {
-        $route = 'category/' . $restaurantId . '/all';
-        return $this->doApiRequest($route);
-    }
-
-    /**
-     * Gets a category by it's ID / name
+     * Gets a category by its ID / name
      *
      * @param int $categoryId
      * @param string $type
@@ -45,6 +37,18 @@ class CategoryApi extends Api
     {
         $route = 'category/' . $categoryId;
         return $this->doApiRequest($route, 'GET', ['type' => $type]);
+    }
+
+    /**
+     * Gets all categories
+     *
+     * @param int $restaurantId
+     * @return array
+     */
+    public function getCategories($restaurantId)
+    {
+        $route = 'category/' . $restaurantId . '/all';
+        return $this->doApiRequest($route);
     }
 
     /**

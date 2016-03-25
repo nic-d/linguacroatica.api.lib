@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class CustomerApi
+ * @package Nybbl\Api
+ */
 class CustomerApi extends Api
 {
     /**
@@ -28,7 +32,7 @@ class CustomerApi extends Api
      * @param int $restaurantId
      * @return array
      */
-    public function getAllCustomers($restaurantId)
+    public function getCustomers($restaurantId)
     {
         $route = 'customer/' . $restaurantId . '/all';
         return $this->doApiRequest($route);

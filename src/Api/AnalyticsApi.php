@@ -10,6 +10,10 @@ namespace Nybbl\Api;
 
 use Nybbl\Api\Api;
 
+/**
+ * Class AnalyticsApi
+ * @package Nybbl\Api
+ */
 class AnalyticsApi extends Api
 {
     /**
