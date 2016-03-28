@@ -178,12 +178,13 @@ class BillingApi extends Api
      * Deletes the restaurant's card
      *
      * @param int $cardId
+     * @param array $postData
      * @return array
      */
-    public function deleteCard($cardId)
+    public function deleteCard($cardId, $postData)
     {
         $route = 'billing/card/' . $cardId . '/delete';
-        return $this->doApiRequest($route, 'POST');
+        return $this->doApiRequest($route, 'POST', $postData);
     }
 
     /**
