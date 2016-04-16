@@ -72,6 +72,19 @@ class OrderApi extends Api
     }
 
     /**
+     * Creates a new order.
+     *
+     * @param int $restaurantId
+     * @param array $orderData
+     * @return array
+     */
+    public function newOrder($restaurantId, $orderData)
+    {
+        $route = 'order/' . $restaurantId . '/new';
+        return $this->doApiRequest($route, 'POST', $orderData);
+    }
+
+    /**
      * Updates the order data
      *
      * @param int $orderId
