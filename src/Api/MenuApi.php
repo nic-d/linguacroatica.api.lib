@@ -122,10 +122,12 @@ class MenuApi extends Api
      * @param int $productId
      * @return array
      */
-    public function removeMenuProducts($menuId, $productId)
+    public function removeMenuProducts($menuId, $productId, $restaurantId)
     {
         $route = 'menu/' . $menuId . '/products/remove';
+
         return $this->doApiRequest($route, 'POST', [
+            'restaurant_id' => $restaurantId,
             'product_id' => $productId,
         ]);
     }
@@ -134,11 +136,15 @@ class MenuApi extends Api
      * Deletes a menu.
      *
      * @param int $menuId
+     * @param int $restaurantId
      * @return array
      */
-    public function deleteMenu($menuId)
+    public function deleteMenu($menuId, $restaurantId)
     {
         $route = 'menu/' . $menuId . '/delete';
-        return $this->doApiRequest($route, 'POST');
+
+        return $this->doApiRequest($route, 'POST', [
+            'restaurant_id' => $restaurantId,
+        ]);
     }
 }
