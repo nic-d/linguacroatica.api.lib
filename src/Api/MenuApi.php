@@ -41,7 +41,7 @@ class MenuApi extends Api
     /**
      * Gets a menu.
      *
-     * @param int $menuId
+     * @param int|string $menuId
      * @return array
      */
     public function getMenu($menuId)
@@ -84,6 +84,19 @@ class MenuApi extends Api
     public function newMenu($restaurantId, $postData)
     {
         $route = 'menu/' . $restaurantId . '/new';
+        return $this->doApiRequest($route, 'POST', $postData);
+    }
+
+    /**
+     * Update an existing menu.
+     *
+     * @param int $menuId
+     * @param array $postData
+     * @return array
+     */
+    public function updateMenu($menuId, $postData)
+    {
+        $route = '/menu/' . $menuId . '/update';
         return $this->doApiRequest($route, 'POST', $postData);
     }
 
