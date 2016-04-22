@@ -39,6 +39,18 @@ class DiscountApi extends Api
     }
 
     /**
+     * Gets a specific discount by its discount code.
+     *
+     * @param string $discountCode
+     * @return array
+     */
+    public function getDiscountCode($discountCode)
+    {
+        $route = '/discount/' . $discountCode . '/code';
+        return $this->doApiRequest($route);
+    }
+
+    /**
      * Gets all discounts
      *
      * @param int $restaurantId

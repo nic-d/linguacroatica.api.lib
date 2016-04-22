@@ -120,6 +120,7 @@ class MenuApi extends Api
      *
      * @param int $menuId
      * @param int $productId
+     * @param int $restaurantId
      * @return array
      */
     public function removeMenuProducts($menuId, $productId, $restaurantId)
