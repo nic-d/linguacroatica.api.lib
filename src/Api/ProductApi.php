@@ -16,6 +16,10 @@ use Nybbl\Api\Api;
  */
 class ProductApi extends Api
 {
+    // Product modifier variant types
+    CONST MODIFIER_VARIANT_EXTRA = 0;
+    CONST MODIFIER_VARIANT_SIDE  = 1;
+
     /**
      * ProductApi constructor.
      * @param string $endpoint
@@ -90,5 +94,67 @@ class ProductApi extends Api
         return $this->doApiRequest($route, 'POST', [
             'restaurant_id' => $restaurantId,
         ]);
+    }
+
+    /**
+     * Gets a modifier.
+     *
+     * @param int $modifierId
+     * @return array
+     */
+    public function getModifier($modifierId)
+    {
+        $route = 'products/modifier/' . $modifierId;
+        return $this->doApiRequest($route);
+    }
+
+    /**
+     * Gets all of the modifiers for a product.
+     *
+     * @param int $productId
+     * @return array
+     */
+    public function getProductModifiers($productId)
+    {
+        $route = 'products/modifiers/' . $productId;
+        return $this->doApiRequest($route);
+    }
+
+    /**
+     * Creates a new modifier for a product.
+     *
+     * @param int $productId
+     * @param array $modifierData
+     * @return array
+     */
+    public function newModifier($productId, $modifierData)
+    {
+        $route = 'products/' . $productId . '/modifier/new';
+        return $this->doApiRequest($route, 'POST', $modifierData);
+    }
+
+    /**
+     * Updates an existing modifier.
+     *
+     * @param int $modifierId
+     * @param array $modifierData
+     * @return array
+     */
+    public function updateModifier($modifierId, $modifierData)
+    {
+        $route = 'products/' . $modifierId . '/modifier/update';
+        return $this->doApiRequest($route, 'POST', $modifierData);
+    }
+
+    /**
+     * Deletes a modifier.
+     *
+     * @param int $modifierId
+     * @return array
+     */
+    public function deleteModifier($modifierId)
+    {
+        $route = 'products/' . $modifierId . '/modifier/delete';
+        return $this->doApiRequest($route, 'POST');
     }
 }
