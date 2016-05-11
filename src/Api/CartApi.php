@@ -51,6 +51,18 @@ class CartApi extends Api
     }
 
     /**
+     * Adds a product with modifiers to the cart.
+     *
+     * @param array $data
+     * @return array
+     */
+    public function addModifier($data)
+    {
+        $route = '/cart/add/modifier';
+        return $this->doApiRequest($route, 'POST', $data);
+    }
+
+    /**
      * Removes a product from the cart.
      *
      * @param array $data
@@ -59,6 +71,18 @@ class CartApi extends Api
     public function remove($data)
     {
         $route = '/cart/remove';
+        return $this->doApiRequest($route, 'POST', $data);
+    }
+
+    /**
+     * Removes a modifier from the cart.
+     *
+     * @param array $data
+     * @return array
+     */
+    public function removeModifier($data)
+    {
+        $route = '/cart/remove/modifier';
         return $this->doApiRequest($route, 'POST', $data);
     }
 }
