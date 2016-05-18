@@ -46,12 +46,16 @@ class ProductApi extends Api
      * Get a specific product by it's ID or slug
      *
      * @param int|string $productId
+     * @param string $type - Either 'slug' OR 'id'.
      * @return array
      */
-    public function getProduct($productId)
+    public function getProduct($productId, $type = 'slug')
     {
         $route = 'products/' . $productId . '/single';
-        return $this->doApiRequest($route);
+
+        return $this->doApiRequest($route, 'GET', [
+            'type' => $type,
+        ]);
     }
 
     /**
