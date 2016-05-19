@@ -100,7 +100,7 @@ class DiscountApi extends Api
      */
     public function updateDiscount($discountId, $discountData)
     {
-        $route = '';
+        $route = 'discount/' . $discountId . '/update';
         return $this->doApiRequest($route, 'POST', $discountData);
     }
 }
