@@ -107,4 +107,20 @@ class RestaurantApi extends Api
 
         return $this->doApiRequest($route);
     }
+
+    /**
+     * Sets the verification status of the domain to
+     * 1 (true) or 0 (false).
+     *
+     * @param int $restaurantId
+     * @param bool $verified
+     * @return array
+     */
+    public function verifyDomain($restaurantId, $verified)
+    {
+        $route = 'restaurant/' . $restaurantId . '/update/domain';
+        return $this->doApiRequest($route, 'POST', [
+            'verified' => $verified
+        ]);
+    }
 }
