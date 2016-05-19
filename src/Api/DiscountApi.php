@@ -90,4 +90,17 @@ class DiscountApi extends Api
             'restaurant_id' => $restaurantId,
         ]);
     }
+
+    /**
+     * Updates a discount.
+     *
+     * @param int $discountId
+     * @param array $discountData
+     * @return array
+     */
+    public function updateDiscount($discountId, $discountData)
+    {
+        $route = '';
+        return $this->doApiRequest($route, 'POST', $discountData);
+    }
 }
