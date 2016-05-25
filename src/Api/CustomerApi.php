@@ -51,6 +51,23 @@ class CustomerApi extends Api
     }
 
     /**
+     * Logs the customer in.
+     *
+     * @param int $restaurantId
+     * @param string $username
+     * @param string $password
+     * @return array
+     */
+    public function login($restaurantId, $username, $password)
+    {
+        $route = 'customer/' . $restaurantId . '/login';
+        return $this->doApiRequest($route, 'POST', [
+            'username' => $username,
+            'password' => $password,
+        ]);
+    }
+
+    /**
      * Creates a new customer
      *
      * @param int $restaurantId
