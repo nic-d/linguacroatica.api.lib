@@ -51,6 +51,21 @@ class CustomerApi extends Api
     }
 
     /**
+     * Gets the customer's orders.
+     *
+     * @param int $customerId
+     * @param int $page
+     * @return array
+     */
+    public function getOrders($customerId, $page)
+    {
+        $route = 'customer/' . $customerId . '/orders';
+        return $this->doApiRequest($route, 'GET', [
+            'page' => $page,
+        ]);
+    }
+
+    /**
      * Logs the customer in.
      *
      * @param int $restaurantId
@@ -102,6 +117,56 @@ class CustomerApi extends Api
     public function deleteCustomer($customerId)
     {
         $route = 'customer/' . $customerId . '/delete';
+        return $this->doApiRequest($route, 'POST');
+    }
+
+    /**
+     * Gets a wallet item.
+     *
+     * @param int|string $walletId
+     * @return array
+     */
+    public function getWalletItem($walletId)
+    {
+        $route = 'customer/wallet/' . $walletId;
+        return $this->doApiRequest($route, 'GET');
+    }
+
+    /**
+     * Creates a new wallet item.
+     *
+     * @param int $customerId
+     * @param array $walletData
+     * @return array
+     */
+    public function newWalletItem($customerId, $walletData)
+    {
+        $route = 'customer/wallet/' . $customerId . '/new';
+        return $this->doApiRequest($route, 'POST', $walletData);
+    }
+
+    /**
+     * Updates a wallet item.
+     *
+     * @param int $walletId
+     * @param array $walletData
+     * @return array
+     */
+    public function updateWalletItem($walletId, $walletData)
+    {
+        $route = 'customer/wallet/' . $walletId . '/update';
+        return $this->doApiRequest($route, 'POST', $walletData);
+    }
+
+    /**
+     * Deletes a wallet item.
+     *
+     * @param int $walletId
+     * @return array
+     */
+    public function deleteWalletItem($walletId)
+    {
+        $route = 'customer/wallet/' . $walletId . '/delete';
         return $this->doApiRequest($route, 'POST');
     }
 }
