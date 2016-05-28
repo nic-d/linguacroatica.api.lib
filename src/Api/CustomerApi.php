@@ -109,6 +109,36 @@ class CustomerApi extends Api
     }
 
     /**
+     * Requests reset token.
+     *
+     * @param int $customerId
+     * @param string $email
+     * @return array
+     */
+    public function forgotPassword($customerId, $email)
+    {
+        $route = 'customer/' . $customerId . '/forgot';
+        return $this->doApiRequest($route, 'POST', [
+            'email' => $email,
+        ]);
+    }
+
+    /**
+     * Updates the customer's password.
+     *
+     * @param int $customerId
+     * @param string $password
+     * @return array
+     */
+    public function updatePassword($customerId, $password)
+    {
+        $route = 'customer/' . $customerId . '/reset';
+        return $this->doApiRequest($route, 'POST', [
+            'password' => $password,
+        ]);
+    }
+
+    /**
      * Deletes a customer
      *
      * @param int $customerId
