@@ -12,7 +12,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3",
+        "php": ">=7.0",
         "ext-curl": "*",
         "php-curl-class/php-curl-class": "^4.6"
     },
