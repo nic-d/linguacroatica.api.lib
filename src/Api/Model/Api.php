@@ -121,7 +121,7 @@ class Api
         switch (strtolower($method)) {
             case 'get':
                 if (!empty($data)) {
-                    $this->getCurl()->get($completeUrl . '&' . http_build_query($data));
+                    $this->getCurl()->get($completeUrl . '?' . http_build_query($data));
                 } else {
                     $this->getCurl()->get($completeUrl);
                 }
