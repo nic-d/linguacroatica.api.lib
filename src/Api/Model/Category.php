@@ -26,16 +26,11 @@ class Category extends Api
     /**
      * Gets all categories.
      *
-     * @param int $page
-     * @param bool $all
      * @return array
      */
-    public function getCategories(int $page = 1, bool $all = false)
+    public function getCategories()
     {
-        return $this->get('categories', [
-            'page' => $page,
-            'all'  => $all,
-        ]);
+        return $this->get('categories');
     }
 
     /**
