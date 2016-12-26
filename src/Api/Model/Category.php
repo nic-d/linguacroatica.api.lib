@@ -39,8 +39,14 @@ class Category extends Api
      * @param int $categoryId
      * @return array
      */
-    public function getCategory(int $categoryId)
+    public function getCategory($categoryId)
     {
+        if (is_string($categoryId)) {
+            return $this->get('category/' . $categoryId, [
+                'type' => 'slug',
+            ]);
+        }
+
         return $this->get('category/' . $categoryId);
     }
 
