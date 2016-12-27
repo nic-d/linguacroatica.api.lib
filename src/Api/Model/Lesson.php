@@ -24,14 +24,14 @@ class Lesson extends Api
     }
 
     /**
-     * Gets lessons for a category.
+     * Get lessons for a module.
      *
-     * @param int $categoryId
+     * @param int $moduleId
      * @return array
      */
-    public function getCategoryLessons(int $categoryId)
+    public function getModuleLessons(int $moduleId)
     {
-        return $this->get('lessons/' . $categoryId);
+        return $this->get('lessons/' . $moduleId);
     }
 
     /**
