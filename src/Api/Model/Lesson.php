@@ -24,6 +24,16 @@ class Lesson extends Api
     }
 
     /**
+     * Gets all lessons.
+     *
+     * @return array
+     */
+    public function getLessons()
+    {
+        return $this->get('lessons');
+    }
+
+    /**
      * Get lessons for a module.
      *
      * @param int $moduleId
