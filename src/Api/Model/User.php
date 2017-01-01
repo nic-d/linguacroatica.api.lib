@@ -28,6 +28,16 @@ class User extends Api
     }
 
     /**
+     * Gets all users.
+     *
+     * @return array
+     */
+    public function getUsers()
+    {
+        return $this->get('users');
+    }
+
+    /**
      * Gets a user by ID or username.
      *
      * @param string|int $userId
