@@ -16,6 +16,7 @@ use Hrvatski\Api\Model\Module;
 use Hrvatski\Api\Model\Payment;
 use Hrvatski\Api\Model\General;
 use Hrvatski\Api\Model\Billing;
+use Hrvatski\Api\Model\Backend;
 
 /**
  * Class Client
@@ -42,7 +43,7 @@ class Client
      * Allows you to call any API class using $client->api('user').
      *
      * @param string $name
-     * @return Billing|Cache|Module|General|Payment|Queue|User|Lesson
+     * @return Billing|Cache|Module|General|Payment|Queue|User|Lesson|Backend
      * @throws \Exception
      */
     public function api(string $name)
@@ -80,6 +81,10 @@ class Client
                 $apiClass = new Lesson($this->getEndpoint());
                 break;
 
+            case 'backend':
+                $apiClass = new Backend($this->getEndpoint());
+                break;
+
             default:
                 throw new \Exception('API Class: ' . $name . ' doesn\'t exist.');
         }
@@ -93,7 +98,7 @@ class Client
      *
      * @param string $name
      * @param $args
-     * @return Billing|Cache|Module|General|Payment|Queue|User|Lesson
+     * @return Billing|Cache|Module|General|Payment|Queue|User|Lesson|Backend
      * @throws \Exception
      */
     public function __call(string $name, $args)
