@@ -17,7 +17,6 @@ class Billing extends Api
     /**
      * Billing constructor.
      * @param string $endpoint
-     * @param string $accessToken
      */
     public function __construct(string $endpoint)
     {
