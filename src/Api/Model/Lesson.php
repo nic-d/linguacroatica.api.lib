@@ -60,4 +60,15 @@ class Lesson extends Api
 
         return $this->get('lesson/' . $lessonId);
     }
+
+    /**
+     * Creates a new lesson.
+     *
+     * @param array $data
+     * @return array
+     */
+    public function createLesson(array $data)
+    {
+        return $this->post('lesson', $data);
+    }
 }
