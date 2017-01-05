@@ -8,8 +8,8 @@
 
 namespace Hrvatski\Api;
 
+use Hrvatski\Api\Model\Test;
 use Hrvatski\Api\Model\User;
-use Hrvatski\Api\Model\Queue;
 use Hrvatski\Api\Model\Lesson;
 use Hrvatski\Api\Model\Module;
 use Hrvatski\Api\Model\Payment;
@@ -42,7 +42,7 @@ class Client
      * Allows you to call any API class using $client->api('user').
      *
      * @param string $name
-     * @return Billing|Module|General|Payment|User|Lesson|Backend
+     * @return Billing|Module|General|Payment|User|Lesson|Backend|Test
      * @throws \Exception
      */
     public function api(string $name)
@@ -76,6 +76,10 @@ class Client
                 $apiClass = new Backend($this->getEndpoint());
                 break;
 
+            case 'test':
+                $apiClass = new Test($this->getEndpoint());
+                break;
+
             default:
                 throw new \Exception('API Class: ' . $name . ' doesn\'t exist.');
         }
@@ -89,7 +93,7 @@ class Client
      *
      * @param string $name
      * @param $args
-     * @return Billing|Module|General|Payment|User|Lesson|Backend
+     * @return Billing|Module|General|Payment|User|Lesson|Backend|Test
      * @throws \Exception
      */
     public function __call(string $name, $args)
