@@ -129,29 +129,6 @@ class User extends Api
     }
 
     /**
-     * Deletes an invite.
-     *
-     * @param string $inviteId
-     * @return array
-     */
-    public function deleteInvite(string $inviteId)
-    {
-        return $this->delete('user/invite/' . $inviteId);
-    }
-
-    /**
-     * Logs user activity.
-     *
-     * @param int $userId
-     * @param array $data
-     * @return array
-     */
-    public function log(int $userId, array $data)
-    {
-        return $this->post('user/' . $userId . '/log', $data);
-    }
-
-    /**
      * Sends request to check if the user can login.
      *
      * @param string $username

@@ -71,4 +71,27 @@ class Lesson extends Api
     {
         return $this->post('lesson', $data);
     }
+
+    /**
+     * Updates a lesson.
+     *
+     * @param int $lessonId
+     * @param array $data
+     * @return array
+     */
+    public function updateLesson(int $lessonId, array $data)
+    {
+        return $this->put('lesson/' . $lessonId, $data);
+    }
+
+    /**
+     * Deletes a lesson.
+     *
+     * @param int $lessonId
+     * @return array
+     */
+    public function deleteLesson(int $lessonId)
+    {
+        return $this->delete('lesson/' . $lessonId);
+    }
 }
