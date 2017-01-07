@@ -69,22 +69,6 @@ class User extends Api
     }
 
     /**
-     * Gets the user's activity.
-     *
-     * @param int $userId
-     * @param int $page
-     * @param bool $all
-     * @return array
-     */
-    public function getActivity(int $userId, int $page = 1, bool $all = false)
-    {
-        return $this->get('user/' . $userId . '/activity', [
-            'page' => $page,
-            'all' => $all,
-        ]);
-    }
-
-    /**
      * Creates a new user account.
      *
      * @param array $data
