@@ -51,6 +51,17 @@ class Test extends Api
     }
 
     /**
+     * Gets the user's answers to a test.
+     *
+     * @param int $userId
+     * @return array
+     */
+    public function getAnswers(int $userId)
+    {
+        return $this->get('test/' . $userId . '/answers');
+    }
+
+    /**
      * Creates a new test.
      *
      * @param array $data
@@ -59,6 +70,18 @@ class Test extends Api
     public function createTest(array $data)
     {
         return $this->post('test', $data);
+    }
+
+    /**
+     * Creates test answers for a user.
+     *
+     * @param int $testId
+     * @param array $data
+     * @return array
+     */
+    public function createAnswer(int $testId, array $data)
+    {
+        return $this->post('test/' . $testId . '/answer', $data);
     }
 
     /**
