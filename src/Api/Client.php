@@ -14,7 +14,6 @@ use Hrvatski\Api\Model\Lesson;
 use Hrvatski\Api\Model\Module;
 use Hrvatski\Api\Model\Payment;
 use Hrvatski\Api\Model\General;
-use Hrvatski\Api\Model\Billing;
 use Hrvatski\Api\Model\Backend;
 
 /**
@@ -42,16 +41,12 @@ class Client
      * Allows you to call any API class using $client->api('user').
      *
      * @param string $name
-     * @return Billing|Module|General|Payment|User|Lesson|Backend|Test
+     * @return Module|General|Payment|User|Lesson|Backend|Test
      * @throws \Exception
      */
     public function api(string $name)
     {
         switch ($name) {
-            case 'billing':
-                $apiClass = new Billing($this->getEndpoint());
-                break;
-
             case 'module':
                 $apiClass = new Module($this->getEndpoint());
                 break;
@@ -93,7 +88,7 @@ class Client
      *
      * @param string $name
      * @param $args
-     * @return Billing|Module|General|Payment|User|Lesson|Backend|Test
+     * @return Module|General|Payment|User|Lesson|Backend|Test
      * @throws \Exception
      */
     public function __call(string $name, $args)
