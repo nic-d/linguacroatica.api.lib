@@ -20,11 +20,21 @@ class Payment extends Api
     /**
      * Payment constructor.
      * @param string $endpoint
-     * @param string $accessToken
      */
     public function __construct(string $endpoint)
     {
         parent::__construct($endpoint);
+    }
+
+    /**
+     * Gets the user's payments.
+     *
+     * @param int $userId
+     * @return array
+     */
+    public function getUserPayments(int $userId)
+    {
+        return $this->get('payment/' . $userId . '/user');
     }
 
     /**
@@ -72,18 +82,6 @@ class Payment extends Api
     public function refundPayment(int $paymentId)
     {
         return $this->post('payment/' . $paymentId);
-    }
-
-    /**
-     * Updates a payment
-     *
-     * @param int $paymentId
-     * @param array $data
-     * @return array
-     */
-    public function updatePayment(int $paymentId, array $data)
-    {
-        return $this->put('payment/' . $paymentId, $data);
     }
 
     /**
