@@ -37,17 +37,19 @@ class Module extends Api
      * Get a single (specific) module.
      *
      * @param int $moduleId
+     * @param int|null $userId
      * @return array
      */
-    public function getModule($moduleId)
+    public function getModule($moduleId, $userId = null)
     {
         if (is_string($moduleId)) {
             return $this->get('module/' . $moduleId, [
                 'type' => 'slug',
+                'user' => $userId,
             ]);
         }
 
-        return $this->get('module/' . $moduleId);
+        return $this->get('module/' . $moduleId, ['user' => $userId]);
     }
 
     /**
