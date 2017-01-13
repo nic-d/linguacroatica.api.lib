@@ -27,6 +27,16 @@ class Payment extends Api
     }
 
     /**
+     * Gets all payments.
+     *
+     * @return array
+     */
+    public function getPayments()
+    {
+        return $this->get('payments');
+    }
+
+    /**
      * Gets the user's payments.
      *
      * @param int $userId
